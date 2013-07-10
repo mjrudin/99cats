@@ -3,6 +3,7 @@ class CatsController < ApplicationController
 
   def index
     @cats = Cat.all
+    @username = User.find_by_session_token(session[:session_token]).username
     render :index
   end
 
