@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html>
+<link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+  <title>User Login Page</title>
+  <body>
+    <h2>User Logging In Machine</h2>
+    <% flash[:notices].try(:each) do |msg|%>
+      <div class="error"><%= msg %></div>
+    <% end %>
+
+    <form action="http://localhost:3000/session" method="post">
+      <p>Username:</p>
+      <p><input type="username" name="username"></p>
+      <p>Password:</p>
+      <p><input type="password" name="password"></p>
+
+      <p><input type="submit" value="Login"></p>
+
+      <a href = "<%= new_user_url %>">New user? Click here!</a>
+    </form>
+  </body>
+</html>

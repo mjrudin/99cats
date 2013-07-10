@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+  <title>Form Page</title>
+  <body>
+    <h2>Cat Creation Machine</h2>
+    <% flash[:notices].try(:each) do |msg|%>
+      <div class="error"><%= msg %></div>
+    <% end %>
+
+    <form action="http://localhost:3000/cats" method="post">
+      <p>Name:</p>
+      <p><input type="text" name="cat[name]"></p>
+      <p>Sex:</p>
+      <select name="cat[sex]">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <p>Age:</p>
+      <p><input type="text" name="cat[age]"></p>
+      <p>Birth Date:</p>
+      <p><input type="date" name="cat[birthdate]"></p>
+      <p>Color:</p>
+      <select name="cat[color]">
+        <option value="black">Black</option>
+        <option value="brown">Brown</option>
+        <option value="white">White</option>
+      </select>
+
+      <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+
+      <p><input type="submit" value="Make a cat!"></p>
+      <p><a href = "http://localhost:3000/cats">Click here to go home</a></p>
+    </form>
+
+    <a href = "http://localhost:3000/session/logout">Logout</a>
+  </body>
+</html>

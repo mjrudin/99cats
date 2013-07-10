@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  age: 1
+  birthdate: 2013-07-10
+  color: MyString
+  name: MyString
+  sex: MyString
+
+two:
+  age: 1
+  birthdate: 2013-07-10
+  color: MyString
+  name: MyString
+  sex: MyString

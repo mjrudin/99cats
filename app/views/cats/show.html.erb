@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html>
+  <title>Display Page</title>
+  <body>
+    <h2>Cat Showing Machine</h2>
+    <p>Name: <%= @cat.name%></p>
+    <p>Sex: <%= @cat.sex%></p>
+    <p>Age: <%= @cat.age%></p>
+    <p>Birthdate: <%= @cat.birthdate%></p>
+    <p>Color: <%= @cat.color%></p><br>
+
+    <% if @owner %>
+    <a href = "<%= edit_cat_url(@cat.id) %>">Edit Cat</a>
+    <% end %>
+
+    <% @requests.each do |request| %>
+
+    <% if request.status == "undecided" && @owner %>
+    <h3>Cat Rental Requests</h3>
+      <p>Begin date: <%= request.begin_date %></p>
+      <p>End date: <%= request.end_date %></p>
+
+    <div class = "approved">
+      <form action="http://localhost:3000/catrentalrequests/<%= request.id %>"
+        method="post">
+        <input type="hidden" name="_method" value="put" />
+        <input type="hidden" name= "cat_rental_request[status]" value="approved"/>
+
+        <input type="hidden"
+                 name="authenticity_token"
+                 value="<%= form_authenticity_token %>">
+
+        <p><input type="submit" value="Approve Request"/></p>
+      </form>
+    </div>
+
+    <div class = "denied">
+      <form action="http://localhost:3000/catrentalrequests/<%= request.id %>"
+        method="post">
+        <input type="hidden" name="_method" value="put" />
+        <input type="hidden" name= "cat_rental_request[status]" value="denied"/>
+
+        <input type="hidden"
+                 name="authenticity_token"
+                 value="<%= form_authenticity_token %>">
+
+        <p><input type="submit" value="Deny Request"/></p>
+      </form>
+    </div>
+
+    <% end %>
+    <% end %>
+
+    <a href = "http://localhost:3000/cats">Click here to go home</a>
+    <a href = "http://localhost:3000/session/logout">Logout</a>
+  </body>
+</html>

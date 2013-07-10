@@ -1,0 +1,29 @@
+<!DOCTYPE>
+<html>
+<title>HOME PAGE WOOO</title>
+<body>
+  <p><h1>Welcome!</h1></p>
+
+  <p><h2>Cats:</h2></p>
+  <ul>
+    <% @cats.each do |cat| %>
+      <li>
+
+        <h4><a href="<%= cat_url(cat.id) %>"><%= "#{cat.name}" %></a>
+
+          Born: <%="#{cat.birthdate}"%></h4>
+        <ol>
+          <% cat.cat_rental_requests.each do |req| %>
+          <li><%="Rental begin date: #{req.begin_date} Status:    #{req.status}"%></li>
+          <% end %>
+        </ol>
+      </li>
+    <% end %>
+
+    <p><h2><a href = "http://localhost:3000/catrentalrequests/new">Rent a cat!</a></h2></p>
+    <p><h2><a href = "http://localhost:3000/cats/new">Make a cat!</a></h2></p>
+    <a href = "http://localhost:3000/session/logout">Logout</a>
+
+  </ul>
+</body>
+</html>

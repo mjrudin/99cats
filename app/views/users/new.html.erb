@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+<link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+  <title>User Creation Page</title>
+  <body>
+    <h2>User Creation Machine</h2>
+    <% flash[:notices].try(:each) do |msg|%>
+      <div class="error"><%= msg %></div>
+    <% end %>
+
+    <form action="http://localhost:3000/users" method="post">
+      <p>Username:</p>
+      <p><input type="username" name="user[username]"></p>
+      <p>Password:</p>
+      <p><input type="password" name="user[password]"></p>
+
+      <p><input type="submit" value="Make a user!"></p>
+
+    </form>
+  </body>
+</html>

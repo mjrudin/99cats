@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+  <title>Rental Request</title>
+  <body>
+    <h2>Cat Rental Request</h2>
+    <% flash[:notices].try(:each) do |msg|%>
+      <div class="error"><%= msg %></div>
+    <% end %>
+    <form action="http://localhost:3000/catrentalrequests" method="post">
+      <p>Select a cat:</p>
+      <select name="cat_rental_request[cat_id]">
+        <% @cats.each do |cat| %>
+        <option value="<%=cat.id%>"><%=cat.name%></option>
+        <% end %>
+      </select>
+
+      <p>Begin Date:</p>
+      <p><input type="date" name="cat_rental_request[begin_date]"></p>
+      <p>End Date:</p>
+      <p><input type="date" name="cat_rental_request[end_date]"></p>
+      <input type="hidden" name="cat_rental_request[status]" value="undecided">
+
+      <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+
+      <p><input type="submit" value="Rent a cat!"></p>
+    </form>
+
+    <p><a href = "http://localhost:3000/cats">Click here to go home</a></p>
+    <a href = "http://localhost:3000/session/logout">Logout</a>
+  </body>
+</html>

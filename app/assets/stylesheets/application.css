@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+
+  padding-top: 40px;
+  padding-left: 120px;
+  padding-right: 120px;
+
+}
+
+h1 {
+    font-family: 'Fauna One', serif;
+    font-size: 32px;
+    color: #949494;
+    width:90%;
+    padding-bottom: 10px;
+    border-bottom:1px solid #C9C9C9;
+    margin:10px;
+    text-align: center;
+  }
+
+h2 {
+    font-family: 'Fauna One', serif;
+    font-size: 24;
+    padding-left: 10px;
+    color: #696969;
+    text-align: left
+   }
+
+ul {
+    font-family: 'Fauna One', serif;
+    list-style-type: none;
+   }
+
+p {
+  font-family: 'Fauna One', serif;
+  }
+
+  a {
+    color: #70afc4;
+  }
+
+  a:visited{
+    color: #768BC4;
+  }
+
+  form{
+
+    padding-left: 10px;
+
+  }
+
+  input{
+    border: 1px solid #C9C9C9;
+    height: 20px;
+  }
+
+  .error{
+    font-family: 'Fauna One', serif;
+    color: #EB5757;
+    font-size: 18px;
+    padding-left: 10px;
+  }

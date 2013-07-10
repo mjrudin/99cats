@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+  <title>Form Page</title>
+  <body>
+    <h2>Cat Modification Machine</h2>
+    <form action="http://localhost:3000/cats/<%=@cat.id%>" method="post">
+      <p>Name:</p>
+      <p><input type="text" name="cat[name]" value="<%=@cat.name%>"></p>
+      <p>Sex:</p>
+      <p><input type="text" name="cat[sex]" value="<%=@cat.sex%>"></p>
+      <p>Age:</p>
+      <p><input type="text" name="cat[age]" value="<%=@cat.age%>"></p>
+      <p>Birth Date:</p>
+      <p><input type="date" name="cat[birthdate]" value="<%=@cat.birthdate%>"></p>
+      <p>Color:</p>
+      <select name="cat[color]" value="<%=@cat.color%>">
+        <option value="black">Black</option>
+        <option value="brown">Brown</option>
+        <option value="white">White</option>
+      </select>
+
+      <input type="hidden" name="_method" value="put">
+
+      <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+
+      <p><input type="submit" value="Modify your cat!"></p>
+      <p><a href = "http://localhost:3000/cats">Click here to go home</a></p>
+      <a href = "http://localhost:3000/session/logout">Logout</a>
+    </form>
+  </body>
+</html>
