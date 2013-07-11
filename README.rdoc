@@ -1,7 +1,8 @@
 == To load 99cats:
 
   1. In command line, go to project directory
-  2. Type `rails server` in command line
-  3. In browser, go to `http://localhost:3000/session/new`
+  2. Type `rake db:migrate` in command line to generate the database
+  3. Type `rails server` in command line
+  4. In browser, go to `http://localhost:3000/session/new`
 
 Enjoy!
